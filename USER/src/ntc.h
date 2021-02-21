@@ -9,7 +9,7 @@
 #include "stm8s.h"
 #include "tim4.h"
 
-#include "tds.h"
+
 /* 自定义新类型 */
 
 /* 自定义宏 */
