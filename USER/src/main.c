@@ -2,7 +2,8 @@
 #include "ntc.h"
 #include "led.h"
 #include "uart.h"
-#inculde "fdc2214.h"
+#include "fdc2214.h"
+#include "keyled.h"
 
 
 void init_all
