@@ -9,7 +9,7 @@
 #define IRLED1ON            GPIO_WriteHigh(IRLED_PORT1,IRLED1);
 #define IRLED1OFF           GPIO_WriteLow(IRLED_PORT1,IRLED1);
 #define IRLED1REVERSE       GPIO_WriteReverse(IRLED_PORT1,IRLED1);
-void init_sensor(void);
+void Sensor_Init(void);
 u16 ircalvalue;
 u16 GetSensorRawValue();
 void GetSensorCalValue(void);

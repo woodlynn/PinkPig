@@ -3,7 +3,7 @@
 
 #include "stm8s.h"
 
-
+void Hw2c_Init (void);
 
 
 
