@@ -6,7 +6,7 @@
 
 /* 简单的延时函数 */
 
-static void Delay_us(u32 nCount){
+ void Delay_us(u32 nCount){
 	unsigned int i;
 	
   	for (i = 0; i < 2000; i++) {

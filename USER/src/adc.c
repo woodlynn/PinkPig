@@ -1,4 +1,4 @@
-#include "adc.h"
+#include "main.h"
 
 /*******************************************************************************
  * 名称: ADC_Init
@@ -17,9 +17,9 @@ void ADC_Init(void)
     /**< 转换数据右对齐 */
     /**< 不使能通道10的斯密特触发器 */
     /**  不使能通道10的斯密特触发器状态 */
-    ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS , ADC1_CHANNEL_1, ADC1_PRESSEL_FCPU_D18,\
+    ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS , NTC_CHANNEL, ADC1_PRESSEL_FCPU_D18,\
 		ADC1_EXTTRIG_TIM, DISABLE, ADC1_ALIGN_RIGHT, ADC1_SCHMITTTRIG_CHANNEL1,DISABLE);
-    ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS , ADC1_CHANNEL_2, ADC1_PRESSEL_FCPU_D18,\
+    ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS , SENSOR_CHANNEL, ADC1_PRESSEL_FCPU_D18,\
 		ADC1_EXTTRIG_TIM, DISABLE, ADC1_ALIGN_RIGHT, ADC1_SCHMITTTRIG_CHANNEL2,DISABLE);
   
     ADC1_Cmd(ENABLE);
@@ -53,10 +53,21 @@ void ADC_Init(void)
     return ADConversion_Value;
 }
 //****************************************************************
-//排序
+//排序，冒泡算算法，大的冒到后面
 
-void ADCShortValue(*p){
+void ADCShortValue(uint16_t *p,uint8_t len){
+    uint16_t tmp;
+    uint8_t i,j;
+    for (i=0;i<len-1;i++){
+        for (j=0;j<len-i-1;j++){
+            if (p[j]>p[j+1]){
+                tmp=p[j];
+                p[j]=p[j+1];
+                p[j+1]=tmp;
+            }
+        }
 
+    }
 
 }
 

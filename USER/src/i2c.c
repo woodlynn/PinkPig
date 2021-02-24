@@ -36,7 +36,7 @@ void HwI2cStart(u8 reg){
       while (!I2C_CheckEvent(I2C_EVENT_MASTER_BYTE_TRANSMITTED));
       I2C_AcknowledgeConfig(ENABLE);
       I2C_SendData(LSB);   
-      delay_us(10);      
+      delay_us(10);      -
       while (!I2C_CheckEvent(I2C_EVENT_MASTER_BYTE_TRANSMITTED));
       I2C_AcknowledgeConfig(ENABLE);
   

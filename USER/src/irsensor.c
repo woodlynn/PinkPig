@@ -7,15 +7,16 @@ u16 ircalvalue;
 void Sensor_Init(void){
 	GPIO_Init(IR_PORT1, IR_LED1, GPIO_MODE_OUT_PP_LOW_FAST );	
     IRLEDOFF;
+
 }
 
 u16 GetSensorRawValue(){
 	u16 tmp[8];
 	u32 tmp;
 	for (u8 i=0;i<8;i++){
-		tmp[i]=OneChannelGetADValue(adc_1,linshi)//get adc value
+		tmp[i]=OneChannelGetADValue(SENSOR_CHANNEL,SENSOR_CHANNEL)//get adc value
 	}
-	ADCShortValue (tmp);//short the value 
+	ADCShortValue(tmp,8);//short the value 
 	tmp = tmp[2]+tmp[3]+tmp[4]+tmp[5]; //get average value
 	tmp /= 4;
 	return (u16)tmp;

@@ -8,23 +8,7 @@
 #include "stm8s_gpio.h"
 #include "tim4.h"
 
-/* 自定义新类型 */
 
-/* 自定义宏 */
-
-/* 全局变量定义 */
-
-/* 简单的延时函数 */
-
-static void Delay(u32 nCount)
-{
-	unsigned int i;
-	
-  	for (i = 0; i < 2000; i++) {
-		for (; nCount > 0; nCount--)
-			;
-  	}
-}
 
 
 /*******************************************************************************

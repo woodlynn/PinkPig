@@ -7,6 +7,7 @@
 #include "uart.h"
 #include "fdc2214.h"
 #include "keyled.h"
+#include "delay.h"
 
 
 #endif
