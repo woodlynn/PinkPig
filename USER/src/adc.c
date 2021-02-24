@@ -52,4 +52,11 @@ void ADC_Init(void)
     ADConversion_Value = ADC1_GetConversionValue();
     return ADConversion_Value;
 }
+//****************************************************************
+//排序
+
+void ADCShortValue(*p){
+
+
+}
 

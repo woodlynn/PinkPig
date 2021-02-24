@@ -4,7 +4,7 @@
 #include "uart.h"
 #include "fdc2214.h"
 #include "keyled.h"
-
+#include "main.h"
 void InitAll (void){
 
 	Uart_Init();
