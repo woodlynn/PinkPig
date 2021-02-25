@@ -32,6 +32,11 @@ u8 Uart1_Tx_Flag=0;
 
 void Uart_Init(void)
 {
+  #ifdef USE_485
+    GPIO_Init(RS485_PORT, RS485_PIN, GPIO_MODE_OUT_PP_LOW_FAST );
+    RS485_RECEIVE_MOD;
+  #endif
+
     UART1_DeInit();
     UART1_Init((u32)115200, UART1_WORDLENGTH_8D, UART1_STOPBITS_1, \
     UART1_PARITY_NO , UART1_SYNCMODE_CLOCK_DISABLE , UART1_MODE_TXRX_ENABLE);
@@ -42,9 +47,16 @@ void Uart_Init(void)
 
 void UART1_SendByte(u8 data)
 {
+  #ifdef USE_485
+    RS485_TRANSMIT_MOD;   //485 control 
+  #endif  
     UART1_SendData8((unsigned char)data);
   /* Loop until the end of transmission */
   while (UART1_GetFlagStatus(UART1_FLAG_TXE) == RESET);
+  #ifdef USE_485
+    RS485_RECEIVE_MOD;   
+  #endif  
+
 }
 
 void UART1_SendString(u8* Data,u16 len)

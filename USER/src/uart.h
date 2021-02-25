@@ -4,9 +4,19 @@
 #include "stm8s_uart1.h"
 
 /* Private macro -------------------------------------------------------------*/
-#define countof(a)   (sizeof(a) / sizeof(*(a)))
-#define RxBufferSize 32
 
+#define USE_485 //if use 485 then deifne this 
+/************************************************/
+#ifdef USE_485//485 TXRX mod control
+#define RS485_PORT 			GPIOD
+#define RS485_PIN			GPIO_PIN_4
+#define RS485_RECEIVE_MOD	GPIO_WriteLow(RS485_PORT,RS485_PIN)
+#define RS485_TRANSMIT_MOD	GPIO_WriteHigh(RS485_PORT,RS485_PIN)
+/*************************************************/
+#endif
+
+#define countof(a)   (sizeof(a) / sizeof(*(a)))//计算a的成员个数
+#define RxBufferSize 32
 void Uart_Init(void);
 void UART1_SendByte(u8 data);
 void UART1_SendString(u8* Data,u16 len);
