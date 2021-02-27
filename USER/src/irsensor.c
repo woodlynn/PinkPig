@@ -6,6 +6,8 @@ u16 ircalvalue;
 
 void Sensor_Init(void){
 	GPIO_Init(IR_PORT1, IR_LED1, GPIO_MODE_OUT_PP_LOW_FAST );	
+	GPIO_Init(IRZERO_PORT, IR_ZERO_PIN, GPIO_MODE_OUT_PP_LOW_FAST );	
+
     IRLEDOFF;
 
 }
