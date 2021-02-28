@@ -70,10 +70,10 @@ void UART1_SendString(u8* Data,u16 len)
 
 u8 UART1_ReceiveByte(void)
 {
-     u8 USART2_RX_BUF; 
+     u8 USART1_RX_BUF; 
      while (UART1_GetFlagStatus(UART1_FLAG_RXNE) == RESET);
      USART2_RX_BUF=UART1_ReceiveData8();
-     return  USART2_RX_BUF;
+     return  USART1_RX_BUF;
     
 }
 
@@ -116,6 +116,7 @@ char* itoa(int num,char* str,int radix)
     return str;//返回转换后的字符串
  
 }
+
 
 
 void UART1_ReciveIRQ(void)
