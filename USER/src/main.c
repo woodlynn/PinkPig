@@ -1,4 +1,5 @@
 
+
 #include "main.h"
 void InitAll (void){
 
@@ -21,15 +22,20 @@ int GetIrsenso{
 
 int main( void ){
 	int sensordata;
-	char value[8];
+	char i,value[5];
 	InitAll();
 	RxBuffer="Test";
 	RxBuffer[5]='\n';
-	Uart1_Sendstring(RxBuffer,sizeof(RxBuffer);
+	Uart1_Sendstring(RxBuffer,sizeof(RxBuffer));
 	sensordata=GetSensorValue();
-	value=itoa (sensordata,);
+	value=itoa (sensordata,value,10);
 	RxBuffer="Sensor:";
-	
-  
-  return 0;
+	for (i=0;i<5;i++){
+		RxBuffer[7+i]=value[i];
+	}
+	Uart1_Sendstring(RxBuffer,16);
 }
+
+
+
+
